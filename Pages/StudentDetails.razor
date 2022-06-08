@@ -1,0 +1,54 @@
+﻿@page "/students/{ID:int}"
+@inject IStudentService StudentService
+@inject NavigationManager navigator
+
+<h3>Student's details:</h3>
+
+<div class="flex">
+    <div>
+        <div>
+            <label for="@Student.FirstName">First name:</label>
+            <input value="@Student.FirstName" disabled />
+        </div>
+        <div>
+            <label for="@Student.LastName">Last name:</label>
+            <input value="@Student.LastName" disabled />
+        </div>
+        <div>
+            <label for="@Student.Birthdate.ToShortDateString()">Birthdate:</label>
+            <input value="@Student.Birthdate.ToShortDateString()" disabled />
+        </div>
+        <div>
+            <label for="@Student.Studies">Studies:</label>
+            <input value="@Student.Studies" disabled />
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="@Student.Avatar">Avatar:</label>
+            <input value="@Student.Avatar" disabled />
+        </div>
+        <div class="image__wrapper">
+            <img alt="@(Student.FirstName) @(Student.LastName) Avatar" src="@Student.Avatar" />
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-primary" @onclick="Return">Return</button>
+
+@code {
+    [Parameter]
+    public int ID { get; set; }
+
+    public Student Student { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Student = StudentService.GetStudent(ID);
+    }
+
+    private void Return()
+    {
+        navigator.NavigateTo("/students");
+    }
+}

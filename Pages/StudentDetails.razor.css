@@ -1,0 +1,44 @@
+h3{
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+label{
+    width: 80px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+input{
+    width: 200px;
+    text-align: center;
+    border: 1px solid darkgreen;
+    background: transparent;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0px;
+}
+
+button{
+    margin: 50px;
+    transform: scale(1.2);
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.flex{
+    display: flex;
+    gap: 50px;
+}
+
+
+.image__wrapper{
+    margin: 20px 0 0 100px;
+    border-radius: 50%;
+    width: 125px;
+    overflow: hidden;
+}
+
